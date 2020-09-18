@@ -1,7 +1,7 @@
 @use "../settings/variables";
 
-.page-width {
-  max-width: variables.$page-max-width;
+.content-width {
+  max-width: variables.$content-max-width;
   margin-left: auto;
   margin-right: auto;
 }

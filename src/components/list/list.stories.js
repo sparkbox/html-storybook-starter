@@ -22,4 +22,4 @@ export default {
   }
 };
 
-export const Main = () => list(listData);
+export const Unordered = () => list(listData);
