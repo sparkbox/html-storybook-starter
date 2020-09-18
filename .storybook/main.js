@@ -7,14 +7,5 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/preset-scss"
-    // {
-    //   name: "@storybook/preset-scss",
-    //   options: {
-    //     sassLoaderOptions: {
-    //        implementation: require('sass'),
-    //        sourceMap: true
-    //     }
-    //   }
-    // }
   ]
 }
