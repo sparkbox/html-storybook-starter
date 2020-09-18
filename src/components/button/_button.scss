@@ -15,7 +15,12 @@
   cursor: pointer;
   background-color: variables.$c-btn-primary;
 
+  &--secondary {
+    border: 3px solid variables.$c-btn-primary;
+    background-color: transparent;
+  }
+
   &--large {
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
   }
 }

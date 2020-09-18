@@ -1,52 +1,59 @@
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import button from './button.hbs';
 
+// Data
+const textButtonData = {
+  text: 'Submit'
+}
+
+const largeButtonData = {
+  text: 'Submit',
+  modifierClass: 'cmp-button--large'
+}
+
+const secondaryButtonData = {
+  text: 'Submit',
+  modifierClass: 'cmp-button--secondary'
+}
+
+
+// Story Exports
 export default {
   title: 'Components/Button',
-  argTypes: {
-    children: { control: 'text' },
-  },
+  parameters: {
+    docs: {
+      source: {
+        code: button()
+      }
+    }
+  }
 };
 
-const Template = ({ onClick, children }) => {
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.innerText = children;
-  btn.classList = 'cmp-button';
-  btn.addEventListener('click', onClick);
-  return btn;
-};
+export const Text = () => button(textButtonData);
+Text.parameters = {
+  docs: {
+    source: {
+      code: button(textButtonData)
+    }
+  }
+}
 
-export const Text = Template.bind({});
-Text.args = {
-  children: 'Button',
-  onClick: action('onClick'),
-};
+export const Secondary = () => button(secondaryButtonData);
+Secondary.parameters = {
+  docs: {
+    source: {
+      code: button(secondaryButtonData)
+    }
+  }
+}
 
-export const Emoji = Template.bind({});
-Emoji.args = {
-  children: '😀 😎 👍 💯',
-};
+export const Large = () => button(largeButtonData);
+Large.parameters = {
+  docs: {
+    source: {
+      code: button(largeButtonData)
+    }
+  }
+}
 
-export const TextWithAction = () => {
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.innerText = 'Trigger Action';
-  btn.classList = 'cmp-button';
-  btn.addEventListener('click', () => action('This was clicked')());
-  return btn;
-};
-
-TextWithAction.storyName = 'With an action';
-TextWithAction.parameters = { notes: 'My notes on a button with emojis' };
-
-export const ButtonWithLinkToAnotherStory = () => {
-  const btn = document.createElement('button');
-  btn.type = 'button';
-  btn.innerText = 'Go to Welcome Story';
-  btn.classList = 'cmp-button';
-  btn.addEventListener('click', linkTo('example-introduction--page'));
-  return btn;
-};
-
-ButtonWithLinkToAnotherStory.storyName = 'button with link to another story';
