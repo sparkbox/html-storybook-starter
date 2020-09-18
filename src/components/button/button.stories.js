@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   argTypes: {
     children: { control: 'text' },
   },
@@ -12,6 +12,7 @@ const Template = ({ onClick, children }) => {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.innerText = children;
+  btn.classList = 'cmp-button';
   btn.addEventListener('click', onClick);
   return btn;
 };
@@ -31,6 +32,7 @@ export const TextWithAction = () => {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.innerText = 'Trigger Action';
+  btn.classList = 'cmp-button';
   btn.addEventListener('click', () => action('This was clicked')());
   return btn;
 };
@@ -42,6 +44,7 @@ export const ButtonWithLinkToAnotherStory = () => {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.innerText = 'Go to Welcome Story';
+  btn.classList = 'cmp-button';
   btn.addEventListener('click', linkTo('example-introduction--page'));
   return btn;
 };

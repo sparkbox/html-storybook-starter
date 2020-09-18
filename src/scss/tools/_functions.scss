@@ -1,0 +1,34 @@
+/**
+ * Accepts a numeric value with units and returns the value without any units.
+ * For example, `16px` would become `16`.
+ *
+ * @see https://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+ */
+ @function strip($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+/**
+ * Strips the unit from value and returns the same value with a different unit.
+ * Useful for swapping rem with em or vice-versa.
+ */
+@function swap($value, $units) {
+  $value: strip($value);
+  @return #{$value}#{$units};
+}
+
+/**
+ * Accepts a pixel value, divides it by a base font size and returns the result
+ * in rems. For example, `24px` would become `1.5rem`.
+ */
+@function px-to-rem($value, $base: 16) {
+  @return swap($value / $base, rem);
+}
+
+/**
+ * Accepts a pixel value, divides it by a base font size and returns the result
+ * in ems. For example, `24px` would become `1.5em`.
+ */
+@function px-to-em($value, $base: 16) {
+  @return swap($value / $base, em);
+}

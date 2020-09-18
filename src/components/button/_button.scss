@@ -1,0 +1,21 @@
+@use "../../scss/settings/variables";
+@use "../../scss/tools/mixins";
+
+
+.cmp-button {
+  // Reset default <button> styles
+  @include mixins.unbuttonize;
+
+  // Reset default <a> styles
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: variables.$c-btn-primary;
+
+  &--large {
+    padding: 1.5rem;
+  }
+}
